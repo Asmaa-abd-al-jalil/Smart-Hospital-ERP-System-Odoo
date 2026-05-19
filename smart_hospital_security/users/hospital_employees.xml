@@ -13,31 +13,44 @@ user_doctor = env.ref('smart_hospital_security.user_doctor', False)
 user_receptionist = env.ref('smart_hospital_security.user_receptionist', False)
 user_inventory = env.ref('smart_hospital_security.user_inventory', False)
 user_maintenance = env.ref('smart_hospital_security.user_maintenance', False)
+user_accountant = env.ref('smart_hospital_security.user_accountant', False)
 
-emp_med_manager = env['hr.employee'].search([('user_id', '=', user_med_manager.id)], limit=1) if user_med_manager else None
-emp_procurement = env['hr.employee'].search([('user_id', '=', user_procurement.id)], limit=1) if user_procurement else None
+def get_or_create_emp(user, default_name, job_title):
+    if not user:
+        return None
+    emp = env['hr.employee'].search([('user_id', '=', user.id)], limit=1)
+    if not emp:
+        emp = env['hr.employee'].create({
+            'user_id': user.id,
+            'name': default_name,
+            'job_title': job_title
+        })
+    return emp
+
+emp_med_manager = get_or_create_emp(user_med_manager, 'Dr. Ahmad (Medical Manager)', 'Medical Operations Manager')
+emp_procurement = get_or_create_emp(user_procurement, 'Eng. Sami (Procurement Manager)', 'Procurement Manager')
+
+doctor = get_or_create_emp(user_doctor, 'Dr. Ola (Hospital Doctor)', 'Hospital Doctor')
+receptionist = get_or_create_emp(user_receptionist, 'Samer (Receptionist)', 'Receptionist')
+inventory = get_or_create_emp(user_inventory, 'Fadi (Inventory Officer)', 'Inventory Officer')
+maintenance = get_or_create_emp(user_maintenance, 'Tareq (Maintenance Technician)', 'Maintenance Tech')
+accountant = get_or_create_emp(user_accountant, 'Amjad (Hospital Accountant)', 'Hospital Accountant')
 
 if emp_med_manager:
     emp_med_manager.write({'name': 'Dr. Ahmad (Medical Manager)', 'job_title': 'Medical Operations Manager'})
-    
-    doctor = env['hr.employee'].search([('user_id', '=', user_doctor.id)], limit=1) if user_doctor else None
     if doctor:
         doctor.write({'parent_id': emp_med_manager.id, 'name': 'Dr. Ola (Hospital Doctor)', 'job_title': 'Hospital Doctor'})
-        
-    receptionist = env['hr.employee'].search([('user_id', '=', user_receptionist.id)], limit=1) if user_receptionist else None
     if receptionist:
         receptionist.write({'parent_id': emp_med_manager.id, 'name': 'Samer (Receptionist)', 'job_title': 'Receptionist'})
 
 if emp_procurement:
     emp_procurement.write({'name': 'Eng. Sami (Procurement Manager)', 'job_title': 'Procurement Manager'})
-    
-    inventory = env['hr.employee'].search([('user_id', '=', user_inventory.id)], limit=1) if user_inventory else None
     if inventory:
         inventory.write({'parent_id': emp_procurement.id, 'name': 'Fadi (Inventory Officer)', 'job_title': 'Inventory Officer'})
-        
-    maintenance = env['hr.employee'].search([('user_id', '=', user_maintenance.id)], limit=1) if user_maintenance else None
     if maintenance:
         maintenance.write({'parent_id': emp_procurement.id, 'name': 'Tareq (Maintenance Technician)', 'job_title': 'Maintenance Tech'})
+    if accountant:
+        accountant.write({'parent_id': emp_procurement.id, 'name': 'Amjad (Hospital Accountant)', 'job_title': 'Hospital Accountant'})
             </field>
         </record>
 

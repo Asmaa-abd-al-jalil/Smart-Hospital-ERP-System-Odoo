@@ -26,5 +26,11 @@
             <field name="user_ids" eval="[(4, ref('user_maintenance'))]"/>
         </record>
 
+        <record id="group_hospital_accountant" model="res.groups">
+            <field name="name">Smart Hospital: Accountant / Billing Officer</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="user_ids" eval="[(4, ref('smart_hospital_security.user_accountant'))]"/>
+        </record>
+
     </data>
 </odoo>

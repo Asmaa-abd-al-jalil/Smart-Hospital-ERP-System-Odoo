@@ -36,5 +36,12 @@
             <field name="login">maintenance@hospital.com</field>
             <field name="password">admin</field>
         </record>
+
+        <record id="user_accountant" model="res.users">
+            <field name="name">Hospital Accountant</field>
+            <field name="login">accountant@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+        
     </data>
 </odoo>
