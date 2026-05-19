@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="emp_doctor" model="hr.employee">
+            <field name="name">Hospital Doctor</field>
+            <field name="user_id" ref="user_doctor"/>
+        </record>
+
+        <record id="emp_receptionist" model="hr.employee">
+            <field name="name">Hospital Receptionist</field>
+            <field name="user_id" ref="user_receptionist"/>
+        </record>
+
+        <record id="emp_med_manager" model="hr.employee">
+            <field name="name">Medical Operations Manager</field>
+            <field name="user_id" ref="user_med_manager"/>
+        </record>
+
+        <record id="emp_inventory" model="hr.employee">
+            <field name="name">Inventory Officer</field>
+            <field name="user_id" ref="user_inventory"/>
+        </record>
+
+        <record id="emp_procurement" model="hr.employee">
+            <field name="name">Procurement Manager</field>
+            <field name="user_id" ref="user_procurement"/>
+        </record>
+
+        <record id="emp_maintenance" model="hr.employee">
+            <field name="name">Maintenance Tech</field>
+            <field name="user_id" ref="user_maintenance"/>
+        </record>
+    </data>
+</odoo>
