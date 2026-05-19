@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="user_doctor" model="res.users">
+    <field name="name">Hospital Doctor</field>
+    <field name="login">doctor@hospital.com</field>
+    <field name="email">doctor@gmail.com</field>
+    <field name="password">admin</field>
+    <field name="active">True</field>
+</record>
+
+        <record id="user_receptionist" model="res.users">
+            <field name="name">Hospital Receptionist</field>
+            <field name="login">reception@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+
+        <record id="user_med_manager" model="res.users">
+            <field name="name">Medical Operations Manager</field>
+            <field name="login">med_manager@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+
+        <record id="user_inventory" model="res.users">
+            <field name="name">Inventory Officer</field>
+            <field name="login">inventory@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+
+        <record id="user_procurement" model="res.users">
+            <field name="name">Procurement Manager</field>
+            <field name="login">procurement@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+
+        <record id="user_maintenance" model="res.users">
+            <field name="name">Maintenance Tech</field>
+            <field name="login">maintenance@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+
+        <record id="user_accountant" model="res.users">
+            <field name="name">Hospital Accountant</field>
+            <field name="login">accountant@hospital.com</field>
+            <field name="password">admin</field>
+        </record>
+        
+    </data>
+</odoo>
