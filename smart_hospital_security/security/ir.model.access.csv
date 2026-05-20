@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hospital_doctor_project,access.hospital.doctor.project,project.model_project_project,group_hospital_doctor,1,1,0,0
+access_hospital_doctor_project,access.hospital.doctor.project,project.model_project_project,group_hospital_doctor,1,0,0,0
 access_hospital_doctor_task,access.hospital.doctor.task,project.model_project_task,group_hospital_doctor,1,1,1,0
+access_hospital_doctor_employee,access.hospital.doctor.employee,hr.model_hr_employee,group_hospital_doctor,1,0,0,0
+access_hospital_doctor_stock,access.hospital.doctor.stock,stock.model_stock_picking,group_hospital_doctor,1,1,1,0
 access_hospital_receptionist_invoice,access.hospital.receptionist.invoice,account.model_account_move,group_hospital_receptionist,1,1,1,0
-access_hospital_doctor_invoice,access.hospital.doctor.invoice,account.model_account_move,group_hospital_doctor,0,0,0,0
-access_hospital_doctor_purchase,access.hospital.doctor.purchase,purchase.model_purchase_order,group_hospital_doctor,0,0,0,0
 access_hospital_inventory_officer_stock,access.hospital.inventory.officer.stock,stock.model_stock_picking,group_hospital_inventory_officer,1,1,1,1
 access_hospital_maintenance_tech_equip,access.hospital.maintenance.tech.equip,maintenance.model_maintenance_equipment,group_hospital_maintenance_tech,1,1,1,0
 access_hospital_procurement_purchase,access.hospital.procurement.purchase,purchase.model_purchase_order,group_hospital_procurement_manager,1,1,1,0
