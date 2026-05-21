@@ -1,30 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="hospital_doctor_own_tasks_rule" model="ir.rule">
-        <field name="name">Doctors: See Own Clinical Tasks Only</field>
-        <field name="model_id" ref="project.model_project_task"/>
-        <field name="groups" eval="[(4, ref('group_hospital_doctor'))]"/>
-        <field name="domain_force">[('user_ids', 'in', user.id)]</field>
-        <field name="perm_read" eval="True"/>
-        <field name="perm_write" eval="True"/>
-        <field name="perm_create" eval="True"/>
-        <field name="perm_unlink" eval="False"/>
-    </record>
+    <data noupdate="0">
 
-    <record id="hospital_manager_all_tasks_rule" model="ir.rule">
-        <field name="name">Medical Manager: See All Clinical Tasks</field>
-        <field name="model_id" ref="project.model_project_task"/>
-        <field name="groups" eval="[(4, ref('group_hospital_medical_ops_manager'))]"/>
-        <field name="domain_force">[(1, '=', 1)]</field>
-    </record>
-
-    <record id="hospital_non_clinical_task_rule" model="ir.rule">
-            <field name="name">Non-Clinical Users: Restrict from Patient/Clinical Tasks</field>
+        <record id="hospital_doctor_own_tasks_strict_rule" model="ir.rule">
+            <field name="name">Doctors: Strictly See and Modify Own Tasks Only</field>
             <field name="model_id" ref="project.model_project_task"/>
-            <field name="groups" eval="[(4, ref('group_hospital_maintenance_tech')), (4, ref('group_hospital_procurement_manager'))]"/>
-            <field name="domain_force">['|', ('user_ids', 'in', user.id), ('message_partner_ids', 'in', user.partner_id.id)]</field>            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_unlink" eval="False"/>
-     </record>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                [('user_ids', 'in', user.id)] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_doctor_employee_self_rule" model="ir.rule">
+            <field name="name">Doctors: Employee Self Record Only</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                [('user_id', '=', user.id)] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_doctor_stock_requisition_rule" model="ir.rule">
+            <field name="name">Doctors: Internal Requisitions Only</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">
+                [('picking_type_code', '=', 'internal')] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_doctor_restrict_invoice_rule" model="ir.rule">
+            <field name="name">Doctors: Absolute Invoice Restriction</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="global" eval="True"/> 
+            <field name="domain_force">
+                [(0, '=', 1)] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_doctor_restrict_purchase_rule" model="ir.rule">
+            <field name="name">Doctors: Absolute Purchase Restriction</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="global" eval="True"/> 
+            <field name="domain_force">
+                [(0, '=', 1)] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_doctor_restrict_maintenance_rule" model="ir.rule">
+            <field name="name">Doctors: Absolute Maintenance Restriction</field>
+            <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+            <field name="global" eval="True"/> 
+            <field name="domain_force">
+                [(0, '=', 1)] if user.has_group('smart_hospital_security.group_hospital_doctor') else [(1, '=', 1)]
+            </field>
+        </record>
+
+        <record id="hospital_manager_all_tasks_rule" model="ir.rule">
+            <field name="name">Medical Manager: See All Clinical Tasks</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="groups" eval="[(4, ref('group_hospital_medical_ops_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record id="hospital_financial_journal_rule" model="ir.rule">
+            <field name="name">Financial Roles: Access Accounting Journals</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="groups" eval="[(4, ref('group_hospital_accountant')), (4, ref('group_hospital_receptionist')), (4, ref('group_hospital_procurement_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <record id="hospital_non_financial_journal_rule" model="ir.rule">
+            <field name="name">Non-Financial Roles: Restrict From Journals</field>
+            <field name="model_id" ref="account.model_account_journal"/>
+            <field name="groups" eval="[(4, ref('group_hospital_doctor')), (4, ref('group_hospital_maintenance_tech')), (4, ref('group_hospital_inventory_officer'))]"/>
+            <field name="domain_force">[(0, '=', 1)]</field> 
+        </record>
+
+        <record id="hospital_inventory_validation_rule" model="ir.rule">
+            <field name="name">Inventory Officer: Full Validation Control</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="groups" eval="[(4, ref('group_hospital_inventory_officer')), (4, ref('group_hospital_procurement_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+    </data>
 </odoo>
