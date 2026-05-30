@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="base.group_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_multi_locations'))]"/>
+        </record>
+
+        <record id="brand_smart_hospital" model="fleet.vehicle.model.brand">
+            <field name="name">Smart Hospital Custom Logistics</field>
+        </record>
+
+        <record id="model_mobile_hospital_truck" model="fleet.vehicle.model">
+            <field name="name">Mobile Hospital Heavy Truck</field>
+            <field name="vehicle_type">car</field>
+            <field name="brand_id" ref="brand_smart_hospital"/>
+        </record>
+
+        <record id="location_unit_alpha" model="stock.location">
+            <field name="name">Mobile-Unit-Alpha Stock</field>
+            <field name="location_id" ref="stock.stock_location_stock"/> 
+            <field name="usage">internal</field>
+        </record>
+
+        <record id="location_unit_beta" model="stock.location">
+            <field name="name">Mobile-Unit-Beta Stock</field>
+            <field name="location_id" ref="stock.stock_location_stock"/>
+            <field name="usage">internal</field>
+        </record>
+
+        <record id="field_vehicle_location" model="ir.model.fields">
+            <field name="name">x_location_id</field>
+            <field name="model_id" model="ir.model" search="[('model', '=', 'fleet.vehicle')]"/>
+            <field name="ttype">many2one</field>
+            <field name="relation">stock.location</field>
+            <field name="field_description">Decentralized Storage Location</field>
+        </record>
+
+        <record id="vehicle_unit_alpha" model="fleet.vehicle">
+            <field name="model_id" ref="model_mobile_hospital_truck"/>
+            <field name="license_plate">M-HOSP-01A</field>
+            <field name="driver_id" ref="smart_hospital_security.user_doctor"/> 
+            <field name="plan_to_change_car" eval="False"/>
+            <field name="x_location_id" ref="location_unit_alpha"/>
+        </record>
+
+        <record id="vehicle_unit_beta" model="fleet.vehicle">
+            <field name="model_id" ref="model_mobile_hospital_truck"/>
+            <field name="license_plate">M-HOSP-02B</field>
+            <field name="plan_to_change_car" eval="False"/>
+            <field name="x_location_id" ref="location_unit_beta"/>
+        </record>
+    </data>
+</odoo>

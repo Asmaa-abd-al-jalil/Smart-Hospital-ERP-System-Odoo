@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <record id="category_biomedical_devices" model="maintenance.equipment.category">
+            <field name="name">Critical Biomedical Devices</field>
+            <field name="technician_user_id" ref="smart_hospital_security.user_maintenance"/>
+        </record>
+
+        <record id="equipment_ventilator_alpha" model="maintenance.equipment">
+            <field name="name">ICU Ventilator [Alpha]</field>
+            <field name="category_id" ref="category_biomedical_devices"/>
+            <field name="serial_no">VENT-ALPHA-2026-001</field>
+            <field name="model">Medtronic PB980</field>
+            <field name="assign_date">2026-05-30</field>
+            
+            <field name="vehicle_id" ref="fleet_logistics.vehicle_unit_alpha"/>
+            
+            <field name="period">30</field>
+            <field name="maintenance_duration">2.0</field> </record>
+
+        <record id="equipment_defibrillator_alpha" model="maintenance.equipment">
+            <field name="name">Advanced Defibrillator [Alpha]</field>
+            <field name="category_id" ref="category_biomedical_devices"/>
+            <field name="serial_no">DEFIB-ALPHA-2026-002</field>
+            <field name="model">Zoll X Series</field>
+            <field name="assign_date">2026-05-30</field>
+            
+            <field name="vehicle_id" ref="fleet_logistics.vehicle_unit_alpha"/>
+            
+            <field name="period">30</field>
+            <field name="maintenance_duration">1.0</field>
+        </record>
+
+
+        <record id="equipment_ventilator_beta" model="maintenance.equipment">
+            <field name="name">ICU Ventilator [Beta]</field>
+            <field name="category_id" ref="category_biomedical_devices"/>
+            <field name="serial_no">VENT-BETA-2026-001</field>
+            <field name="model">Medtronic PB980</field>
+            <field name="assign_date">2026-05-30</field>
+            
+            <field name="vehicle_id" ref="fleet_logistics.vehicle_unit_beta"/>
+            
+            <field name="period">30</field>
+            <field name="maintenance_duration">2.0</field>
+        </record>
+
+        <record id="equipment_defibrillator_beta" model="maintenance.equipment">
+            <field name="name">Advanced Defibrillator [Beta]</field>
+            <field name="category_id" ref="category_biomedical_devices"/>
+            <field name="serial_no">DEFIB-BETA-2026-002</field>
+            <field name="model">Zoll X Series</field>
+            <field name="assign_date">2026-05-30</field>
+            
+            <field name="vehicle_id" ref="fleet_logistics.vehicle_unit_beta"/>
+            
+            <field name="period">30</field>
+            <field name="maintenance_duration">1.0</field>
+        </record>
+
+    </data>
+</odoo>

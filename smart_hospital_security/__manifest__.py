@@ -13,6 +13,8 @@
         'purchase',
         'maintenance',
         'project',
+        'fleet',
+
     ],
     'data': [
         'security/hospital_security_groups.xml',
@@ -21,6 +23,9 @@
         'users/hospital_users.xml', 
         'users/hospital_users_groups.xml',
         'users/hospital_employees.xml',
+        'fleet_logistics/hospital_fleet_inventory.xml',
+        'fleet_logistics/hospital_medical_assets.xml',
+        'fleet_logistics/hospital_reordering_rules.xml',
     ],
     'installable': True,
     'application': False,
