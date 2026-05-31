@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="field_maintenance_equipment_host_vehicle" model="ir.model.fields">
+            <field name="name">x_host_vehicle_id</field>
+            <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+            <field name="ttype">many2one</field>
+            <field name="relation">fleet.vehicle</field>
+            <field name="field_description">Host Medical Vehicle</field>
+        </record>
+
+        <record id="view_maintenance_equipment_form_smart_hospital" model="ir.ui.view">
+            <field name="name">maintenance.equipment.form.smart.hospital</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='model']" position="after">
+                    <field name="x_host_vehicle_id" string="Assigned Host Vehicle" options="{'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="equipment_ventilator_alpha" model="maintenance.equipment">
+            <field name="name">Portable Ventilator - MMU Alpha 01</field>
+            <field name="x_host_vehicle_id" ref="smart_hospital_security.vehicle_mobile_unit_alpha"/>
+            <field name="note">Critical life support machinery deployed on Mobile Hospital Heavy Truck Alpha.</field>
+        </record>
+
+        <record id="equipment_xray_alpha" model="maintenance.equipment">
+            <field name="name">Mobile Digital X-Ray System - MMU Alpha</field>
+            <field name="x_host_vehicle_id" ref="smart_hospital_security.vehicle_mobile_unit_alpha"/>
+            <field name="note">High-frequency diagnostic imaging system for decentralized field operations.</field>
+        </record>
+
+        <record id="equipment_monitor_beta" model="maintenance.equipment">
+            <field name="name">Multi-Para Vital Sign Monitor - MMU Beta</field>
+            <field name="x_host_vehicle_id" ref="smart_hospital_security.vehicle_mobile_unit_beta"/>
+            <field name="note">Continuous physiological monitoring dashboard for field clinical staff.</field>
+        </record>
+
+        <record id="equipment_defibrillator_amb01" model="maintenance.equipment">
+            <field name="name">Automated External Defibrillator (AED) - Ambulance 01</field>
+            <field name="x_host_vehicle_id" ref="smart_hospital_security.vehicle_ambulance_01"/>
+            <field name="note">Emergency cardiac resuscitation device deployed on Rapid Response Ambulance 01.</field>
+        </record>
+    </data>
+</odoo>
