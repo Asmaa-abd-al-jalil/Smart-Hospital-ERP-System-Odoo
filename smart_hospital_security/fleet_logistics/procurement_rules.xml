@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="rule_epinephrine_stock_alpha" model="stock.warehouse.orderpoint">
+            <field name="product_id" ref="product_epinephrine"/>
+            <field name="location_id" ref="location_mobile_unit_alpha"/>
+            <field name="product_min_qty">50.0</field>
+            <field name="product_max_qty">200.0</field>
+            <field name="trigger">auto</field>
+        </record>
+    </data>
+</odoo>

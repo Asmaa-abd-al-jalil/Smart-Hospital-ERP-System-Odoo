@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_epinephrine" model="product.template">
+            <field name="name">Epinephrine Injection</field>
+            <field name="detailed_type">product</field> 
+            <field name="tracking">lot</field>
+            <field name="use_expiration_date" eval="True"/>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="list_price">10.0</field>
+        </record>
+    </data>
+</odoo>
