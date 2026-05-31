@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="brand_smart_hospital" model="fleet.vehicle.model.brand">
+            <field name="name">Smart Hospital Logistics</field>
+        </record>
+
+        <record id="model_mobile_hospital_truck" model="fleet.vehicle.model">
+            <field name="name">Mobile Hospital Heavy Truck</field>
+            <field name="brand_id" ref="brand_smart_hospital"/>
+        </record>
+
+        <record id="model_hospital_ambulance" model="fleet.vehicle.model">
+            <field name="name">Rapid Response Intensive Care Ambulance</field>
+            <field name="brand_id" ref="brand_smart_hospital"/>
+        </record>
+
+        <record id="vehicle_mobile_unit_alpha" model="fleet.vehicle">
+            <field name="model_id" ref="model_mobile_hospital_truck"/>
+            <field name="license_plate">MH-TRK-ALPHA</field>
+            <field name="vin_sn">VINSH1000000000A1</field>
+            <field name="color">White/Blue</field>
+            <field name="note">Mobile Medical Unit Alpha. Dedicated decentralized unit for clinical staff stock consumption.</field>
+        </record>
+
+        <record id="vehicle_mobile_unit_beta" model="fleet.vehicle">
+            <field name="model_id" ref="model_mobile_hospital_truck"/>
+            <field name="license_plate">MH-TRK-BETA</field>
+            <field name="vin_sn">VINSH1000000000B2</field>
+            <field name="color">White/Blue</field>
+            <field name="note">Mobile Medical Unit Beta. Dedicated decentralized unit for clinical staff stock consumption.</field>
+        </record>
+
+        <record id="vehicle_ambulance_01" model="fleet.vehicle">
+            <field name="model_id" ref="model_hospital_ambulance"/>
+            <field name="license_plate">MH-AMB-01</field>
+            <field name="vin_sn">VINSH1000000000AM1</field>
+            <field name="color">White/Red</field>
+            <field name="note">Intensive Care Ambulance 01. Emergency response decentralized inventory capability.</field>
+        </record>
+
+        <record id="view_fleet_vehicle_form_smart_hospital" model="ir.ui.view">
+            <field name="name">fleet.vehicle.form.smart.hospital</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location']" position="after">
+                    <field name="x_storage_location_id" string="Inventory Location" options="{'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <function model="fleet.vehicle" name="write">
+            <value eval="[ref('vehicle_mobile_unit_alpha')]"/>
+            <value eval="{'x_storage_location_id': ref('smart_hospital_security.location_mobile_unit_alpha')}"/>
+        </function>
+
+        <function model="fleet.vehicle" name="write">
+            <value eval="[ref('vehicle_mobile_unit_beta')]"/>
+            <value eval="{'x_storage_location_id': ref('smart_hospital_security.location_mobile_unit_beta')}"/>
+        </function>
+
+        <function model="fleet.vehicle" name="write">
+            <value eval="[ref('vehicle_ambulance_01')]"/>
+            <value eval="{'x_storage_location_id': ref('smart_hospital_security.location_ambulance_01')}"/>
+        </function>
+    </data>
+</odoo>
