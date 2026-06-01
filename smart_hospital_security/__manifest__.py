@@ -39,7 +39,8 @@
         'data/emergency_activity.xml',
         'data/project_campaign.xml',
         'data/calendar_shift.xml',
-        'views/crm_lead_view.xml'
+        'views/crm_lead_view.xml',
+        'views/calendar_event_views.xml'
     ],
     'installable': True,
     'application': False,
