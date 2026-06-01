@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stage_new_alert" model="crm.stage">
+        <field name="name">New Alert</field>
+        <field name="sequence">1</field>
+    </record>
+    <record id="stage_tele_triage" model="crm.stage">
+        <field name="name">Tele-Triage Diagnosis</field>
+        <field name="sequence">2</field>
+    </record>
+    <record id="stage_active_dispatch" model="crm.stage">
+        <field name="name">Active Dispatch</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="stage_on_site" model="crm.stage">
+        <field name="name">On-Site Care</field>
+        <field name="sequence">4</field>
+    </record>
+    <record id="stage_resolved" model="crm.stage">
+        <field name="name">Resolved</field>
+        <field name="sequence">5</field>
+        <field name="is_won" eval="True"/>
+    </record>
+</odoo>
