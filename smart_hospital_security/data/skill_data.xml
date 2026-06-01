@@ -2,6 +2,23 @@
 <odoo>
     <record id="skill_type_disaster_medicine" model="hr.skill.type">
         <field name="name">Disaster Medicine</field>
-        <field name="skill_ids" eval="[(0,0,{'name': 'Trauma Care'}), (0,0,{'name': 'Infectious Diseases'}), (0,0,{'name': 'Pediatric First Aid'})]"/>
+        <field name="skill_level_ids" eval="[(0,0,{'name': 'Beginner', 'level_progress': 25}), 
+                                           (0,0,{'name': 'Advanced', 'level_progress': 50}), 
+                                           (0,0,{'name': 'Expert', 'level_progress': 100})]"/>
+    </record>
+
+    <record id="skill_trauma_care" model="hr.skill">
+        <field name="name">Trauma Care</field>
+        <field name="skill_type_id" ref="skill_type_disaster_medicine"/>
+    </record>
+
+    <record id="skill_infectious_diseases" model="hr.skill">
+        <field name="name">Infectious Diseases</field>
+        <field name="skill_type_id" ref="skill_type_disaster_medicine"/>
+    </record>
+
+    <record id="skill_pediatric_first_aid" model="hr.skill">
+        <field name="name">Pediatric First Aid</field>
+        <field name="skill_type_id" ref="skill_type_disaster_medicine"/>
     </record>
 </odoo>

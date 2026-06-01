@@ -18,6 +18,8 @@
         'crm',
         'point_of_sale',
         'website_hr_recruitment',
+        'hr_skills',
+        'hr_recruitment'
     ],
     'data': [
         'security/hospital_security_groups.xml',
@@ -40,8 +42,11 @@
         'data/project_campaign.xml',
         'data/calendar_shift.xml',
         'data/pos_dispensary_data.xml',
+        'data/skill_data.xml',          
+        'data/hr_job_data.xml',
         'views/crm_lead_view.xml',
-        'views/calendar_event_views.xml'
+        'views/calendar_event_views.xml',
+        'views/hr_applicant_view.xml',
     ],
     'installable': True,
     'application': False,
