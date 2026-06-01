@@ -32,9 +32,10 @@
         'fleet_logistics/medical_products.xml',   
         'fleet_logistics/procurement_rules.xml',
         'fleet_logistics/maintenance_automation.xml',
-        'data/automated_workflow.xml',
+        # 'data/automated_workflow.xml',
         'data/crm_stages.xml',
         'data/crm_data.xml',
+        'data/emergency_activity.xml',
         'views/crm_lead_view.xml'
     ],
     'installable': True,
