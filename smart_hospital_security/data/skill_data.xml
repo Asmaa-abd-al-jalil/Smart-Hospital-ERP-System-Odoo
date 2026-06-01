@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="skill_type_disaster_medicine" model="hr.skill.type">
+        <field name="name">Disaster Medicine</field>
+        <field name="skill_ids" eval="[(0,0,{'name': 'Trauma Care'}), (0,0,{'name': 'Infectious Diseases'}), (0,0,{'name': 'Pediatric First Aid'})]"/>
+    </record>
+</odoo>
