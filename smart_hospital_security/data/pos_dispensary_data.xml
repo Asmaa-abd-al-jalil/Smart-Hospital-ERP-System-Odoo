@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="pos_payment_method_emergency" model="pos.payment.method">
+            <field name="name">Free Emergency Handout</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="picking_type_pos_alpha" model="stock.picking.type">
+            <field name="name">Mobile Dispensary - Alpha Orders</field>
+            <field name="code">outgoing</field>
+            <field name="sequence_code">POSA</field>
+            <field name="warehouse_id" ref="stock.warehouse0"/> 
+            <field name="default_location_src_id" ref="location_mobile_unit_alpha"/>
+            <field name="default_location_dest_id" ref="stock.stock_location_customers"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+        <record id="pos_config_truck_alpha" model="pos.config">
+            <field name="name">Mobile Dispensary - Truck Alpha</field>
+            <field name="picking_type_id" ref="picking_type_pos_alpha"/>
+            <field name="payment_method_ids" eval="[(6, 0, [ref('pos_payment_method_emergency')])]"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+    </data>
+</odoo>
