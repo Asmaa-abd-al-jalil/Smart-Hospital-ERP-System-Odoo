@@ -14,6 +14,7 @@
         'maintenance',
         'project',
         'fleet',
+        'crm',
         
 
     ],
@@ -27,13 +28,17 @@
 'fleet_logistics/inventory_locations.xml', 
         'fleet_logistics/fleet_vehicles.xml',
         'fleet_logistics/biomedical_assets.xml',
+        'fleet_logistics/product_data.xml',
         'fleet_logistics/medical_products.xml',   
         'fleet_logistics/procurement_rules.xml',
         'fleet_logistics/maintenance_automation.xml',
-        'data/automated_workflow.xml'
+        'data/automated_workflow.xml',
+        'data/crm_stages.xml',
+        'data/crm_data.xml',
+        'views/crm_lead_view.xml'
     ],
     'installable': True,
     'application': False,
     'auto_install': False,
-    'post_init_hook': 'post_init_hook',
+    # 'post_init_hook': 'post_init_hook',
 }

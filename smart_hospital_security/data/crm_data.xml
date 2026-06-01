@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tag_trauma" model="crm.tag">
+        <field name="name">#Trauma</field>
+        <field name="color" eval="1"/>
+    </record>
+    <record id="tag_pediatric" model="crm.tag">
+        <field name="name">#Pediatric</field>
+        <field name="color" eval="2"/>
+    </record>
+    <record id="tag_infectious" model="crm.tag">
+        <field name="name">#InfectiousOutbreak</field>
+        <field name="color" eval="3"/>
+    </record>
+</odoo>

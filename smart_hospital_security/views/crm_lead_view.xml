@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_hospital_ext" model="ir.ui.view">
+        <field name="name">res.partner.form.hospital</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Emergency Medical Data">
+                    <field name="x_blood_type"/>
+                    <field name="x_medical_allergies"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
