@@ -19,7 +19,8 @@
         'point_of_sale',
         'website_hr_recruitment',
         'hr_skills',
-        'hr_recruitment'
+        'hr_recruitment',
+        'lunch'
     ],
     'data': [
         'security/hospital_security_groups.xml',
@@ -44,6 +45,7 @@
         'data/pos_dispensary_data.xml',
         'data/skill_data.xml',          
         'data/hr_job_data.xml',
+        'data/lunch_ration_data.xml',
         'views/crm_lead_view.xml',
         'views/calendar_event_views.xml',
         'views/hr_applicant_view.xml',

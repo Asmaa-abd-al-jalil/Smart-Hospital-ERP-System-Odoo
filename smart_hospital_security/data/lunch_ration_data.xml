@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- 1. إنشاء جهة الاتصال -->
+        <record id="partner_mre_logistics" model="res.partner">
+            <field name="name">MRE Logistics</field>
+            <field name="is_company" eval="True"/>
+        </record>
+
+        <!-- 2. إنشاء المورد -->
+        <record id="vendor_disaster_relief" model="lunch.supplier">
+            <field name="name">MRE Logistics</field>
+            <field name="partner_id" ref="partner_mre_logistics"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- 3. إنشاء فئة للمنتجات (حل لمشكلة الـ External ID) -->
+        <record id="lunch_category_emergency" model="lunch.product.category">
+            <field name="name">Emergency Rations</field>
+        </record>
+
+        <!-- 4. إنشاء المنتج وربطه بالفئة الجديدة والمورد -->
+        <record id="product_mre_pack" model="lunch.product">
+            <field name="name">Emergency Ration Pack</field>
+            <field name="supplier_id" ref="vendor_disaster_relief"/>
+            <field name="category_id" ref="lunch_category_emergency"/>
+            <field name="price" eval="0.0"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- 5. مواقع التسليم -->
+        <record id="lunch_location_north_zone" model="lunch.location">
+            <field name="name">North Flood Zone - Truck Alpha</field>
+        </record>
+    </data>
+</odoo>
