@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0"> 
+        <record id="calendar_type_medical_shift" model="calendar.event.type">
+            <field name="name">Medical Team Shifts</field>
+        </record>
+
+        <record id="calendar_type_asset_booking" model="calendar.event.type">
+            <field name="name">Asset Scheduling (Trailers/Trucks)</field>
+        </record>
+
+        <record id="calendar_event_doctor_disaster_shift_final" model="calendar.event">
+            <field name="name">Hospital Doctor - Shift @ Mobile Clinic Trailer #1</field>
+            
+            <field name="start">2026-06-02 08:00:00</field>
+            <field name="stop">2026-06-02 20:00:00</field>
+            <field name="allday" eval="False"/>
+            <field name="show_as">busy</field> 
+            
+            <field name="description">مناوبة طوارئ ميدانية مكثفة لمدة 12 ساعة ربطاً بين الطبيب الحالي والأصول المتحركة لعملية Lifeline Sync.</field>
+            
+            <field name="categ_ids" eval="[(6, 0, [ref('calendar_type_medical_shift'), ref('calendar_type_asset_booking')])]"/>
+            <field name="user_id" ref="user_doctor"/>
+            
+            <field name="vehicle_id" ref="vehicle_mobile_unit_alpha"/>
+            
+            <field name="partner_ids" eval="[(6, 0, [ref('base.partner_admin'), ref('partner_doctor')])]"/>
+        </record>
+    </data>
+</odoo>

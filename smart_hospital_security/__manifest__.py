@@ -13,6 +13,7 @@
         'purchase',
         'maintenance',
         'project',
+        'calendar',
         'fleet',
         'crm',
         
@@ -25,7 +26,7 @@
         'users/hospital_users.xml', 
         'users/hospital_users_groups.xml',
         'users/hospital_employees.xml',
-'fleet_logistics/inventory_locations.xml', 
+        'fleet_logistics/inventory_locations.xml', 
         'fleet_logistics/fleet_vehicles.xml',
         'fleet_logistics/biomedical_assets.xml',
         'fleet_logistics/product_data.xml',
@@ -36,7 +37,10 @@
         'data/crm_stages.xml',
         'data/crm_data.xml',
         'data/emergency_activity.xml',
-        'views/crm_lead_view.xml'
+        'data/project_campaign.xml',
+        'data/calendar_shift.xml',
+        'views/crm_lead_view.xml',
+        'views/calendar_event_views.xml'
     ],
     'installable': True,
     'application': False,

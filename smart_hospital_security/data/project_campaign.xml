@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="project_remote_disaster_campaign" model="project.project">
+            <field name="name">Remote Disaster Relief Campaign</field>
+            <field name="privacy_visibility">followers</field>
+            <field name="description">لوحة التحكم المركزية لإدارة الخدمات اللوجستية والمحطات الطبية الميدانية في مناطق الكوارث.</field>
+        </record>
+
+        <record id="task_general_checkup_tent" model="project.task">
+            <field name="name">General Checkup Tent</field>
+            <field name="project_id" ref="project_remote_disaster_campaign"/>
+            <field name="description">المحطة الأولى لاستقبال الحالات الميدانية غير الطارئة وإجراء الفحوصات العامة.</field>
+        </record>
+
+        <record id="task_mobile_xray_station" model="project.task">
+            <field name="name">Mobile X-Ray Station</field>
+            <field name="project_id" ref="project_remote_disaster_campaign"/>
+            <field name="description">وحدة الأشعة المتنقلة لتشخيص الإصابات والكسور الميدانية بشكل فوري.</field>
+        </record>
+    </data>
+</odoo>
