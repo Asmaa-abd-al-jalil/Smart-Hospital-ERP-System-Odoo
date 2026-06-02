@@ -11,5 +11,13 @@
             <field name="categ_id" ref="medical_supplies_category"/>
             <field name="list_price">10.0</field>
         </record>
+
+        <record id="product_first_aid_kit" model="product.template">
+            <field name="name">First Aid Kit</field>
+            <field name="type">consu</field>
+            <field name="is_storable">True</field> <field name="categ_id" ref="medical_supplies_category"/>
+            <field name="list_price">0.00</field> 
+            <field name="available_in_pos">True</field> 
+        </record>
     </data>
 </odoo>

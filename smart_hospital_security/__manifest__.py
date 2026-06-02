@@ -16,7 +16,7 @@
         'calendar',
         'fleet',
         'crm',
-        
+        'point_of_sale',
 
     ],
     'data': [
@@ -39,6 +39,7 @@
         'data/emergency_activity.xml',
         'data/project_campaign.xml',
         'data/calendar_shift.xml',
+        'data/pos_dispensary_data.xml',
         'views/crm_lead_view.xml',
         'views/calendar_event_views.xml'
     ],
