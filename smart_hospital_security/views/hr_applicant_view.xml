@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_applicant_form_inherited_skills" model="ir.ui.view">
+        <field name="name">hr.applicant.form.skills</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Clinical Skills" name="clinical_skills_page">
+                    <group>
+                        <field name="applicant_skill_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

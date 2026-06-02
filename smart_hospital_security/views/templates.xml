@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="apply_job_skills_inherit" inherit_id="website_hr_recruitment.apply">
+    <xpath expr="//form" position="inside">
+        <div class="form-group row o_website_form_custom">
+            <label class="col-lg-3 col-md-4 col-form-label">Clinical Skills</label>
+            <div class="col-lg-9 col-md-8">
+                <t t-set="skills" t-value="request.env['hr.skill'].search([('skill_type_id.name', '=', 'Disaster Medicine')])"/>
+                <div class="row">
+                    <t t-foreach="skills" t-as="skill">
+                        <div class="col-md-6">
+                            <div class="form-check">
+                                <input type="checkbox" name="applicant_skill_ids" t-att-value="skill.id" class="form-check-input"/>
+                                <label class="form-check-label"><t t-esc="skill.name"/></label>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</template>
+</odoo>
