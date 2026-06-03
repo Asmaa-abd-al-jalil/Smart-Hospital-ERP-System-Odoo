@@ -2,6 +2,7 @@
 from . import fleet_logistics
 from . import hospital_lead
 from . import calendar_event
+from . import crm_lead
 from . import pos_automation
 from . import models
 

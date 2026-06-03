@@ -4,6 +4,7 @@
     'version': '1.0',
     'summary': 'Role-Based Access Control & Operations for Smart Mobile Hospital',
     'category': 'Custom',
+    'license': 'LGPL-3',
     'author': 'Smart Hospital Team',
     'depends': [
         'base',
@@ -50,6 +51,7 @@
         'views/calendar_event_views.xml',
         'views/hr_applicant_view.xml',
         'views/templates.xml',
+        'views/crm_triage_views.xml'
         'views/views.xml'
     ],
     'installable': True,
