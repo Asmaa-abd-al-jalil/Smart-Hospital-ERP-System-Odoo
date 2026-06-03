@@ -51,7 +51,7 @@
         'views/calendar_event_views.xml',
         'views/hr_applicant_view.xml',
         'views/templates.xml',
-        'views/crm_triage_views.xml'
+        'views/crm_triage_views.xml',
         'views/views.xml'
     ],
     'installable': True,
