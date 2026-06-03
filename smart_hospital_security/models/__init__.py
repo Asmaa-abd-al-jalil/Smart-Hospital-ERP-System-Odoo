@@ -2,6 +2,9 @@
 from . import fleet_logistics
 from . import hospital_lead
 from . import calendar_event
+from . import pos_automation
+from . import models
+
 # def post_init_hook(cr, registry):
 #     from odoo import api, SUPERUSER_ID
 #     env = api.Environment(cr, SUPERUSER_ID, {})

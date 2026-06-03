@@ -49,7 +49,8 @@
         'views/crm_lead_view.xml',
         'views/calendar_event_views.xml',
         'views/hr_applicant_view.xml',
-        'views/templates.xml'
+        'views/templates.xml',
+        'views/views.xml'
     ],
     'installable': True,
     'application': False,
